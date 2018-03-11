@@ -18,14 +18,14 @@ def validate_word(s):
 
 def pu(word):
     """
-    Removes accent from the given word or phrase. 
-    
+    Removes accent from the given word or phrase.
+
     If word is not an instance of str or unicode, raise TypeError.
 
-    This is applied ONLY for the Greek language where when any small 
-    accented vowel (ά, έ, ή, ί, ό, ύ, ώ) is capitalized, the accent 
+    This is applied ONLY for the Greek language where when any small
+    accented vowel (ά, έ, ή, ί, ό, ύ, ώ) is capitalized, the accent
     remains making it look ugly.
-    
+
     Example: ΚΑΛΗΜΈΡΑ instead of ΚΑΛΗΜΕΡΑ
 
                         REPLACEMENT TABLE
@@ -68,4 +68,3 @@ def pu(word):
             word = sub(letter, replacement_table.get(letter), word)
         return word.upper()
     return ''
-
