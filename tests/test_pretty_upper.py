@@ -37,18 +37,11 @@ def test_command_line_interface():
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
 
-def test_validate_word():
-    vw = pretty_upper.validate_word
-
-    pytest.raises(TypeError, vw, {})
-    pytest.raises(TypeError, "vw({})")
-    assert vw('') == ''
-    assert vw('α') == 'α'
-
 
 def test_pu():
     pu = pretty_upper.pu
 
+    pytest.raises(TypeError, pu, {})
     assert pu('') == ''
     assert pu('α') == 'Α'
     assert pu('ί') == 'Ι'

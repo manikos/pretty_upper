@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
 from re import sub
 
 
 def validate_word(s):
     if isinstance(s, str):
         return s
-    try:
-        if isinstance(s, unicode):
-            return s
-    except NameError:
-        pass
     err = 'Argument should be either str or unicode. Argument\'s type is "%s".'
     raise TypeError(err % s.__class__.__name__)
 
@@ -41,31 +35,27 @@ def pu(word):
            ύ        |  U+03CD   |         υ         |   U+03C5
            ώ        |  U+03CE   |         ω         |   U+03C9
     """
-
-    if validate_word(word):
-        try:
-            if not isinstance(word, unicode):
-                word = unicode(word, encoding='utf-8')
-        except NameError:
-            pass
-        replacement_table = {  # Greek lower vowels
-                               u'ά': u'α',
-                               u'έ': u'ε',
-                               u'ή': u'η',
-                               u'ί': u'ι',
-                               u'ό': u'ο',
-                               u'ύ': u'υ',
-                               u'ώ': u'ω',
-                               # Greek upper vowels
-                               u'Ά': u'Α',
-                               u'Έ': u'Ε',
-                               u'Ή': u'Η',
-                               u'Ί': u'Ι',
-                               u'Ό': u'Ο',
-                               u'Ύ': u'Υ',
-                               u'Ώ': u'Ω',
-        }
-        for letter in replacement_table:
-            word = sub(letter, replacement_table.get(letter), word)
-        return word.upper()
-    return ''
+    if not isinstance(word, str):
+        err = 'Argument should be either str or unicode. ' \
+              'Argument\'s type is "%s".'
+        raise TypeError(err % word.__class__.__name__)
+    replacement_table = {  # Greek lower vowels
+                           u'ά': u'α',
+                           u'έ': u'ε',
+                           u'ή': u'η',
+                           u'ί': u'ι',
+                           u'ό': u'ο',
+                           u'ύ': u'υ',
+                           u'ώ': u'ω',
+                           # Greek upper vowels
+                           u'Ά': u'Α',
+                           u'Έ': u'Ε',
+                           u'Ή': u'Η',
+                           u'Ί': u'Ι',
+                           u'Ό': u'Ο',
+                           u'Ύ': u'Υ',
+                           u'Ώ': u'Ω',
+    }
+    for letter in replacement_table:
+        word = sub(letter, replacement_table.get(letter), word)
+    return word.upper()
