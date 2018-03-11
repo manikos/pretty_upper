@@ -4,4 +4,9 @@ Usage
 
 To use Pretty upper in a project::
 
-    import pretty_upper
+    from pretty_upper import pu
+
+    pu('hello')  # HELLO
+    pu('μενού')  # ΜΕΝΟΥ
+    pu('ά ί ο')  # Α Ι Ο
+
