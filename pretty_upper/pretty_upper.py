@@ -41,6 +41,7 @@ def pu(word):
            ύ        |  U+03CD   |         υ         |   U+03C5
            ώ        |  U+03CE   |         ω         |   U+03C9
     """
+
     if validate_word(word):
         try:
             if not isinstance(word, unicode):

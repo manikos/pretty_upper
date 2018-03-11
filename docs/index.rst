@@ -1,5 +1,5 @@
 Welcome to Pretty upper's documentation!
-======================================
+========================================
 
 .. toctree::
    :maxdepth: 2
