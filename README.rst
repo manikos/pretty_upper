@@ -26,7 +26,20 @@ Removes accents from vowels when a Greek word/sentence is all capitals
 Features
 --------
 
-* TODO
+In Greek language (and in others too) there are some vowels that when are accented they have a special treatment during pronouncing the word.
+
+The Greek language has 7 vowels: `α`, `ε`, `η`, `ι`, `ο`, `υ` and `ω` and all of them may be accented. 
+
+The problem comes when an accented vowel gets capitalized. The accent is not removed making the all-capital word look ugly with unnecessary accents.
+
+In Greek grammar, when a word is all-capital, all accents from vowels should be removed. Thus, making it look prettier.
+
+The all-capital word is a common scenario in web pages, such as the navigation menu, call to action (CTA) buttons, some headings etc.
+
+For example compare the word `ΜΕΝΟΎ` with `ΜΕΝΟΥ` (both means `menu` but former has accent on Υ and latter has not). Which is prettier for the web?
+
+This package tries to solve this issue and remove the accent from vowels when are capitalized.
+
 
 Credits
 -------
