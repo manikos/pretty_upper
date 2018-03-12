@@ -4,13 +4,13 @@
 import sys
 import click
 
+from .pretty_upper import pu
+
 
 @click.command()
-def main(args=None):
-    """Console script for pretty_upper."""
-    click.echo("Replace this message by putting your code into "
-               "pretty_upper.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+@click.argument('word', type=str)
+def main(word):
+    click.echo(pu(word))
     return 0
 
 
