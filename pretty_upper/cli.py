@@ -10,7 +10,8 @@ from .pretty_upper import pu
 @click.command()
 @click.argument('word', type=str)
 def main(word):
-    click.echo(pu(word))
+    if word:
+        click.echo(pu(word))
     return 0
 
 
